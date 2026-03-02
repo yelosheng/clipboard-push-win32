@@ -35,7 +35,7 @@ bool MainWindow::Create(HINSTANCE hInstance) {
     // Ensure common controls are initialized
     INITCOMMONCONTROLSEX icex;
     icex.dwSize = sizeof(INITCOMMONCONTROLSEX);
-    icex.dwICC = ICC_WIN95_CLASSES;
+    icex.dwICC = ICC_WIN95_CLASSES | ICC_LINK_CLASS;
     InitCommonControlsEx(&icex);
 
     m_hWnd = CreateDialogParamW(hInstance, MAKEINTRESOURCEW(IDD_MAINWINDOW), NULL, DialogProc, (LPARAM)this);

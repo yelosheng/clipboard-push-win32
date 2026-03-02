@@ -282,6 +282,17 @@ INT_PTR CALLBACK SettingsWindow::DialogProc(HWND hDlg, UINT message, WPARAM wPar
         }
         break;
 
+    case WM_NOTIFY: {
+        NMHDR* pnmh = (NMHDR*)lParam;
+        if (pnmh->idFrom == IDC_SETTINGS_LINKS &&
+            (pnmh->code == NM_CLICK || pnmh->code == NM_RETURN)) {
+            NMLINK* pNMLink = (NMLINK*)lParam;
+            Utils::OpenUrl(Utils::ToUtf8(pNMLink->item.szUrl));
+            return (INT_PTR)TRUE;
+        }
+        break;
+    }
+
     case WM_CLOSE:
         ShowWindow(hDlg, SW_HIDE);
         return (INT_PTR)TRUE;

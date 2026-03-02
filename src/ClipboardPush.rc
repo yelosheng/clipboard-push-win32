@@ -42,7 +42,7 @@ BEGIN
 END
 
 // Settings Window Dialog
-IDD_SETTINGSWINDOW DIALOGEX 0, 0, 420, 280
+IDD_SETTINGSWINDOW DIALOGEX 0, 0, 420, 295
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Clipboard Push Settings"
 FONT 9, "Segoe UI", 400, 0, 0x1
@@ -90,6 +90,8 @@ BEGIN
     
     LTEXT           "Version ...", IDC_SETTINGS_VERSION, 200, 265, 140, 8, SS_RIGHT | WS_DISABLED
     PUSHBUTTON      "Update Available!", IDC_SETTINGS_UPDATE_BTN, 345, 262, 70, 14, NOT WS_VISIBLE
+
+    CONTROL         "<a href=""https://clipboardpush.com"">Website</a>  ·  <a href=""https://github.com/yelosheng/clipboard-push-win32"">GitHub</a>", IDC_SETTINGS_LINKS, "SysLink", WS_VISIBLE | WS_CHILD | WS_TABSTOP, 7, 281, 185, 10
 END
 
 // Version Information
