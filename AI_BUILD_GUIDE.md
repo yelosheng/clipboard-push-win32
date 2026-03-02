@@ -21,14 +21,37 @@ Before running any build command, confirm the following tools are available:
 
 ## 2. The Canonical Build Command
 
-Because MinGW/GCC may be on PATH and would produce incorrect binaries, you **must** initialize the MSVC environment and force the static vcpkg triplet in the same shell session.
+### Incremental build (normal usage)
 
-```powershell
-# Replace <VS_VCVARS64> with the actual path to vcvars64.bat on this machine
-# Replace <PROJECT_DIR> with the absolute path to this repository
-
-cmd /c "call \"<VS_VCVARS64>\" && cd /d <PROJECT_DIR> && rd /s /q build & mkdir build & cd build & cmake -G \"Ninja\" -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_BUILD_TYPE=Release .. && cmake --build ."
+```bash
+powershell -NoProfile -Command "cmd /c 'D:\APPs\z_pan_python\clipboard_push_win32-client\build_release.bat'"
 ```
+
+`build_release.bat` (already in project root):
+```bat
+@echo off
+call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+cmake --build "D:\APPs\z_pan_python\clipboard_push_win32-client\build"
+```
+
+> **Important:** Do NOT use `cmd /c` directly from Git Bash — MSYS path conversion silently breaks it.
+> Always wrap with `powershell -NoProfile -Command "cmd /c '...'"`.
+
+### Clean rebuild (from scratch)
+
+```bat
+@echo off
+call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+cd /d "D:\APPs\z_pan_python\clipboard_push_win32-client"
+rd /s /q build & mkdir build & cd build
+cmake -G "Ninja" -DCMAKE_TOOLCHAIN_FILE=D:\vcpkg\scripts\buildsystems\vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
+```
+
+### Confirmed environment (this machine)
+- vcvars64.bat: `C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat`
+- VCPKG_ROOT: `D:\vcpkg`
+- Ninja: `D:\mingw64\bin\ninja.exe`
 
 ---
 

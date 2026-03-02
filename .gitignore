@@ -40,6 +40,10 @@ task_plan.md
 # Log files
 *.log
 
+# Local build scripts
+build_release.bat
+build_clean.bat
+
 # Sensitive info (if exists)
 config.json
 *.key
