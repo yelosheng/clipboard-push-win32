@@ -7,8 +7,7 @@
 
 A lightweight, dependency-free native Windows client for **[Clipboard Push](https://clipboardpush.com)** — push clipboard text, images, and files between your PC and mobile device over Wi-Fi or through a relay server, with end-to-end AES-256-GCM encryption.
 
-> **Android app:** [clipboard-push-android](https://github.com/yelosheng/clipboard-push-android)
-> **Relay server:** [clipboard-push-server](https://github.com/yelosheng/clipboard-push-server)
+**Related:** [Website](https://clipboardpush.com) · [Android App](https://github.com/yelosheng/clipboard-push-android) · [Relay Server](https://github.com/yelosheng/clipboard-push-server)
 
 ---
 
