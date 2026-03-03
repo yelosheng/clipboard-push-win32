@@ -91,7 +91,8 @@ BEGIN
     LTEXT           "Version ...", IDC_SETTINGS_VERSION, 200, 265, 140, 8, SS_RIGHT | WS_DISABLED
     PUSHBUTTON      "Update Available!", IDC_SETTINGS_UPDATE_BTN, 345, 262, 70, 14, NOT WS_VISIBLE
 
-    CONTROL         "<a href=""https://clipboardpush.com"">Website</a>  ·  <a href=""https://github.com/yelosheng/clipboard-push-win32"">GitHub</a>", IDC_SETTINGS_LINKS, "SysLink", WS_VISIBLE | WS_CHILD | WS_TABSTOP, 7, 281, 185, 10
+    CONTROL         "", IDC_ICON_WEBSITE, "Static", SS_ICON | SS_NOTIFY | WS_VISIBLE | WS_CHILD, 200, 278, 14, 14
+    CONTROL         "<a href=""https://clipboardpush.com"">Website</a>  |  <a href=""https://github.com/yelosheng/clipboard-push-win32"">GitHub</a>", IDC_SETTINGS_LINKS, "SysLink", WS_VISIBLE | WS_CHILD | WS_TABSTOP, 216, 280, 197, 10
 END
 
 // Version Information

@@ -212,6 +212,14 @@ INT_PTR CALLBACK SettingsWindow::DialogProc(HWND hDlg, UINT message, WPARAM wPar
     switch (message) {
     case WM_INITDIALOG:
         SetWindowLongPtr(hDlg, DWLP_USER, (LONG_PTR)lParam);
+        {
+            HICON hIcon = (HICON)LoadImage(
+                GetModuleHandle(nullptr),
+                MAKEINTRESOURCE(IDI_APP_ICON),
+                IMAGE_ICON, 14, 14, LR_DEFAULTCOLOR
+            );
+            SendDlgItemMessage(hDlg, IDC_ICON_WEBSITE, STM_SETICON, (WPARAM)hIcon, 0);
+        }
         return (INT_PTR)TRUE;
 
     case WM_DRAWITEM: {
@@ -264,6 +272,11 @@ INT_PTR CALLBACK SettingsWindow::DialogProc(HWND hDlg, UINT message, WPARAM wPar
         case IDC_SETTINGS_UPDATE_BTN:
             if (pThis && !pThis->m_updateUrl.empty()) {
                 Utils::OpenUrl(pThis->m_updateUrl);
+            }
+            return (INT_PTR)TRUE;
+        case IDC_ICON_WEBSITE:
+            if (HIWORD(wParam) == STN_CLICKED) {
+                Utils::OpenUrl("https://clipboardpush.com");
             }
             return (INT_PTR)TRUE;
         case IDC_SETTINGS_BROWSE: {
