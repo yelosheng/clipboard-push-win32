@@ -1,5 +1,5 @@
 {
-    "changelog":  "Auto-build update. (Build 110)",
+    "changelog":  "Add Website and GitHub links to settings window; fix settings links separator. (Build 1.1.1)",
     "build":  111,
     "version_major":  4,
     "version_minor":  7,
