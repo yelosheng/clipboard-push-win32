@@ -105,7 +105,14 @@ bool Config::Load() {
         }
 
         if (m_data.device_id.empty()) InitializeDefaults();
-        
+
+        // Migrate placeholder server URL left by older builds
+        if (m_data.relay_server_url == "http://your-server.com:12505/") {
+            m_data.relay_server_url = "https://kxkl.tk:12505/";
+            Save();
+            LOG_INFO("Migrated placeholder server URL to kxkl.tk");
+        }
+
         LOG_INFO("Config loaded from %s", path.c_str());
         return true;
     } catch (const std::exception& e) {

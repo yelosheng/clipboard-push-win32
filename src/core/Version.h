@@ -6,8 +6,8 @@
 
 #define APP_BUILD_MAJOR 1
 #define APP_BUILD_MINOR 1
-#define APP_BUILD_PATCH 3
-#define APP_BUILD_NUMBER 113  // integer for auto-update comparison
+#define APP_BUILD_PATCH 4
+#define APP_BUILD_NUMBER 114  // integer for auto-update comparison
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
